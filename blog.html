@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Anti-Drone</title>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            color: #000000;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        body.dark-mode {
+            background-color: #121212;
+            color: #ffffff;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: background-color 0.3s;
+        }
+
+        body.dark-mode header {
+            background-color: #1e1e1e;
+        }
+
+        header nav {
+            display: flex;
+            gap: 15px;
+        }
+
+        header nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        body.dark-mode header nav a {
+            color: #ffffff;
+        }
+
+        header nav a:hover {
+            color: #007BFF;
+        }
+
+        .toggle-theme {
+            cursor: pointer;
+            padding: 8px 15px;
+            border: none;
+            background-color: #007BFF;
+            color: white;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .toggle-theme:hover {
+            background-color: #0056b3;
+        }
+
+        .blog-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .blog-container h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .post {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        body.dark-mode .post {
+            background-color: #1e1e1e;
+            box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+        }
+
+        .post h2 {
+            margin: 0;
+            font-size: 1.8rem;
+        }
+
+        .post p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .post a {
+            display: inline-block;
+            margin-top: 10px;
+            color: #007BFF;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .post a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Anti-Drone</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#team">Our Team</a>
+            <a href="blog.html">Blog</a>
+            <a href="index.html#contact">Contact</a>
+        </nav>
+        <button class="toggle-theme" onclick="toggleDarkMode()">Dark Mode</button>
+    </header>
+
+    <div class="blog-container">
+        <h1>Blog</h1>
+
+        <div class="post">
+            <h2>O impacto dos drones na segurança moderna</h2>
+            <p>Os drones estão revolucionando a segurança e a vigilância em várias indústrias...</p>
+            <a href="#">Leia mais</a>
+        </div>
+
+        <div class="post">
+            <h2>Como funciona a detecção de drones por radar?</h2>
+            <p>A tecnologia de radar pode identificar drones com precisão, diferenciando-os de pássaros ou aviões...</p>
+            <a href="#">Leia mais</a>
+        </div>
+
+        <div class="post">
+            <h2>Os desafios da regulamentação dos drones</h2>
+            <p>Com o aumento do uso de drones, governos estão implementando novas regras de controle...</p>
+            <a href="#">Leia mais</a>
+        </div>
+    </div>
+
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+        }
+    </script>
+</body>
+</html>
