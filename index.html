@@ -12,7 +12,7 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background-color: #ffffff;
+            background-color: #d4d4d4;
             color: #000000;
             transition: background-color 0.3s, color 0.3s;
         }
@@ -27,7 +27,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 10px 20px;
-            background-color: #ffffff;
+            background-color: #ececec;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             position: sticky;
             top: 0;
@@ -60,7 +60,7 @@
         }
 
         .hero {
-            background-image: url('https://images.pexels.com/photos/5014710/pexels-photo-5014710.jpeg'); 
+            background-image: url('images/background.jpeg'); 
             background-size: cover;
             background-position: center;
             color: white;
@@ -97,6 +97,83 @@
         .toggle-theme:hover {
             background-color: #0056b3;
         }
+
+        /* Container do botão */
+        .toggle-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+        }
+
+        /* Ícones minimalistas */
+        .icon {
+            width: 24px;
+            height: 24px;
+            color: #f39c12;
+            transition: opacity 0.3s, transform 0.3s;
+        }
+
+        /* Estilização do botão toggle */
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        /* O botão deslizante */
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: 0.4s;
+            border-radius: 24px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: 0.4s;
+            border-radius: 50%;
+        }
+
+        /* Quando ativado, muda para Dark Mode */
+        input:checked + .slider {
+            background-color: #007BFF;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        /* Oculta o ícone do sol quando estiver no modo escuro */
+        body.dark-mode #sun-icon {
+            opacity: 0;
+            transform: scale(0.8);
+        }
+
+        /* Oculta o ícone da lua quando estiver no modo claro */
+        body:not(.dark-mode) #moon-icon {
+            opacity: 0;
+            transform: scale(0.8);
+        }
+
 
         /* Seção About */
         .about {
@@ -135,12 +212,15 @@
         /* Seção Our Team */
         .team {
             text-align: center;
-            padding: 50px 20px;
+            width: 100%;
+            margin: 0 auto; /* Se estava com algum valor maior, pode estar empurrando para baixo */
+            padding-top: 30px; /* Se necessário, ajuste o padding-top */
+            margin-bottom: 20px;
         }
 
         .team h2 {
             font-size: 2rem;
-            margin-bottom: 20px;
+            text-align: center;
         }
 
         .team-container {
@@ -169,6 +249,118 @@
             font-weight: bold;
             margin: 5px 0;
         }
+
+        .project {
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .project h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .video-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .video-container iframe {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .partners {
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .partners h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .partners-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .partner-logo {
+            width: 150px;
+            height: 150px;
+            margin: 20px;
+        }
+
+        .partner-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .partner-img {
+            display: none;
+        }
+
+        body:not(.dark-mode) .partner-img.light-mode {
+            display: block;
+        }
+
+        body.dark-mode .partner-img.dark-mode {
+            display: block;
+        }
+
+        .contacts {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .footer {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .contact-details {
+            margin-bottom: 30px;
+        }
+
+        .contact-details h3 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .contact-details p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .contact-form button {
+            padding: 12px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .contact-form button:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
@@ -178,10 +370,32 @@
             <a href="#">Home</a>
             <a href="#about">About</a>
             <a href="#team">Our Team</a>
+            <a href="#project">Our Project</a>
             <a href="blog.html">Blog</a>
-            <a href="#contact">Contact</a>
+            <a href="#contacts">Contact</a>
         </nav>
-        <button class="toggle-theme" onclick="toggleDarkMode()">Dark Mode</button>
+        <div class="toggle-container">
+            <svg id="sun-icon" class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+        
+            <label class="switch">
+                <input type="checkbox" id="darkModeToggle">
+                <span class="slider round"></span>
+            </label>
+        
+            <svg id="moon-icon" class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+        </div>        
     </header>
 
     <section class="hero">
@@ -192,55 +406,115 @@
     <section id="about" class="about">
         <h2>About</h2>
         <p>
-            Este projeto visa desenvolver um sistema de detecção e rastreamento de drones utilizando tecnologia de radar. 
+            Este projeto visa desenvolver um sistema de detecção e rastreamento de drones utilizando tecnologia de radar. O sistema será capaz de identificar a presença de drones em um determinado espaço aéreo, diferenciando-os de outras aeronaves  ou objetos em movimento. A solução utilizará algoritmos de processamento de sinais para analisar os ecos de radar e técnicas de aprendizado de máquina para classificar e prever a trajetória dos drones. O objetivo é aumentar a segurança em áreas sensíveis, como aeroportos, instalações militares e eventos públicos. 
         </p>
         <button class="btn-pdf" onclick="openPDF()">Abrir PDF</button>
     </section>
 
-    <section id="team" class="team"></section>
+    <section id="team" class="team">
         <h2>Our Team</h2>
         <div class="team-container">
             <div class="team-member">
-                <img src="https://via.placeholder.com/150" alt="Team Member 1">
+                <img src="images/team1.png" alt="Team Member 1">
                 <p>Rodrigo Sanguino</p>
                 <p>ist184342</p>
             </div>
             <div class="team-member">
-                <img src="https://via.placeholder.com/150" alt="Team Member 2">
+                <img src="images/team2.png" alt="Team Member 2">
                 <p>Guilherme Martins</p>
                 <p>ist1106274</p>
             </div>
             <div class="team-member">
-                <img src="https://via.placeholder.com/150" alt="Team Member 3">
+                <img src="images/team3.png" alt="Team Member 3">
                 <p>Francisco Rodrigues</p>
                 <p>ist1106695</p>
             </div>
             <div class="team-member">
-                <img src="https://via.placeholder.com/150" alt="Team Member 4">
+                <img src="images/team4.png" alt="Team Member 4">
                 <p>Guilherme Luís</p>
                 <p>ist1106755</p>
             </div>
             <div class="team-member">
-                <img src="https://via.placeholder.com/150" alt="Team Member 5">
+                <img src="images/team5.png" alt="Team Member 5">
                 <p>João Firmino</p>
                 <p>ist1107485</p>
             </div>
             <div class="team-member">
-                <img src="https://via.placeholder.com/150" alt="Team Member 6">
+                <img src="images/team6.png" alt="Team Member 6">
                 <p>Afonso de Mello</p>
                 <p>ist1107495</p>
             </div>
         </div>
     </section>
 
+    <section id="project" class="project">
+        <h2>Our Project</h2>
+        <p>Confira nosso vídeo explicativo sobre o projeto Anti-Drone.</p>
+        <div class="video-container">
+            <iframe width="1280" height="720" 
+                src="https://www.youtube.com/embed/r8R_vuewTJc" 
+                title="YouTube video player" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+        </div>
+    </section>
+
+    <section id="partners" class="partners">
+        <h2>Partners</h2>
+        <div class="partners-container">
+            <div class="partner-logo">
+                <img src="images/partner1.png" alt="Partner 1">
+            </div>
+            <div class="partner">
+                <img class="partner-img light-mode" src="images/partner2l.png" alt="Partner 2">
+                <img class="partner-img dark-mode" src="images/partner2d.png" alt="Partner 2 Dark Mode">
+            </div>
+            <div class="partner-logo">
+                <img src="images/partner3.png" alt="Partner 3">
+            </div>
+            <div class="partner-logo">
+                <img src="images/partner4.png" alt="Partner 4">
+            </div>
+        </div>
+    </section>
+
+    <section id="contacts" class="contacts">
+        <div class="footer">
+            <p>© 2025 - All Rights Reserved.</p>
+            <div class="contact-details">
+                <h3>Contacts</h3>
+                <p><strong>Address:</strong> Av. Rovisco Pais Nº1, 1049-001 Lisboa</p>
+                <p><strong>Email:</strong> joao.g.firmino@tecnico.ulisboa.pt</p>
+            </div>
+            <div class="contact-form">
+                <h3>Write us</h3>
+                <form action="#" method="post">
+                    <input type="email" placeholder="Your email.." required>
+                    <textarea placeholder="Your message.." required></textarea>
+                    <button type="submit">Send</button>
+                </form>
+            </div>
+        </div>
+    </section>    
+
     <script>
-        function toggleDarkMode() {
-            document.body.classList.toggle('dark-mode');
-            localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+        // Aplica o modo escuro se estiver salvo no localStorage
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.body.classList.add('dark-mode');
+            document.getElementById('darkModeToggle').checked = true;
         }
 
+        // Função para alternar o modo escuro e salvar no localStorage
+        document.getElementById('darkModeToggle').addEventListener('change', function () {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+        });
+
+
         function openPDF() {
-            window.open('seuarquivo.pdf', '_blank');
+            window.open('teste.pdf', '_blank');
         }
     </script>
 </body>

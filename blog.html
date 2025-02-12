@@ -12,7 +12,7 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background-color: #ffffff;
+            background-color: #d4d4d4;
             color: #000000;
             transition: background-color 0.3s, color 0.3s;
         }
@@ -27,7 +27,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 10px 20px;
-            background-color: #ffffff;
+            background-color: #ececec;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             position: sticky;
             top: 0;
@@ -73,6 +73,83 @@
         .toggle-theme:hover {
             background-color: #0056b3;
         }
+
+        /* Container do botão */
+        .toggle-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+        }
+
+        /* Ícones minimalistas */
+        .icon {
+            width: 24px;
+            height: 24px;
+            color: #f39c12;
+            transition: opacity 0.3s, transform 0.3s;
+        }
+
+        /* Estilização do botão toggle */
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        /* O botão deslizante */
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: 0.4s;
+            border-radius: 24px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: 0.4s;
+            border-radius: 50%;
+        }
+
+        /* Quando ativado, muda para Dark Mode */
+        input:checked + .slider {
+            background-color: #007BFF;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        /* Oculta o ícone do sol quando estiver no modo escuro */
+        body.dark-mode #sun-icon {
+            opacity: 0;
+            transform: scale(0.8);
+        }
+
+        /* Oculta o ícone da lua quando estiver no modo claro */
+        body:not(.dark-mode) #moon-icon {
+            opacity: 0;
+            transform: scale(0.8);
+        }
+
 
         .blog-container {
             max-width: 800px;
@@ -130,10 +207,32 @@
             <a href="index.html">Home</a>
             <a href="index.html#about">About</a>
             <a href="index.html#team">Our Team</a>
+            <a href="index.html#project">Our Project</a>
             <a href="blog.html">Blog</a>
             <a href="index.html#contact">Contact</a>
         </nav>
-        <button class="toggle-theme" onclick="toggleDarkMode()">Dark Mode</button>
+        <div class="toggle-container">
+            <svg id="sun-icon" class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+        
+            <label class="switch">
+                <input type="checkbox" id="darkModeToggle">
+                <span class="slider round"></span>
+            </label>
+        
+            <svg id="moon-icon" class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+        </div>               
     </header>
 
     <div class="blog-container">
@@ -159,10 +258,17 @@
     </div>
 
     <script>
-        function toggleDarkMode() {
+        // Aplica o modo escuro se estiver salvo no localStorage
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.body.classList.add('dark-mode');
+            document.getElementById('darkModeToggle').checked = true;
+        }
+
+        // Função para alternar o modo escuro e salvar no localStorage
+        document.getElementById('darkModeToggle').addEventListener('change', function () {
             document.body.classList.toggle('dark-mode');
             localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
-        }
+        });
     </script>
 </body>
 </html>
