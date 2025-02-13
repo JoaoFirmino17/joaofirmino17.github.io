@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog - Anti-Drone</title>
+    <title>Anti-Drone</title>
     <style>
+        /* Your original styles */
         html {
             scroll-behavior: smooth;
         }
@@ -22,6 +23,7 @@
             color: #ffffff;
         }
 
+        /* Updated responsive header */
         header {
             display: flex;
             justify-content: space-between;
@@ -33,6 +35,53 @@
             top: 0;
             z-index: 1000;
             transition: background-color 0.3s;
+            flex-wrap: wrap;
+        }
+
+        /* Mobile menu button */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 5px;
+            color: inherit;
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+                order: 2;
+            }
+
+            header nav {
+                display: none;
+                width: 100%;
+                order: 4;
+                flex-direction: column;
+                padding: 10px 0;
+            }
+
+            header nav.active {
+                display: flex;
+            }
+
+            header nav a {
+                padding: 10px 0;
+                text-align: center;
+                border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+            }
+
+            .toggle-container {
+                order: 3;
+                width: auto;
+                margin-left: auto;
+            }
+
+            .logo {
+                order: 1;
+            }
         }
 
         body.dark-mode header {
@@ -59,6 +108,7 @@
             color: #007BFF;
         }
 
+        /* Your original toggle theme styles */
         .toggle-theme {
             cursor: pointer;
             padding: 8px 15px;
@@ -74,15 +124,13 @@
             background-color: #0056b3;
         }
 
-        /* Container do botão */
         .toggle-container {
             display: flex;
             align-items: center;
             gap: 10px;
-            cursor: pointer;
         }
 
-        /* Ícones minimalistas */
+        /* Your original icon styles */
         .icon {
             width: 24px;
             height: 24px;
@@ -90,7 +138,176 @@
             transition: opacity 0.3s, transform 0.3s;
         }
 
-        /* Estilização do botão toggle */
+        .blog-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            width: 90%;
+            box-sizing: border-box;
+            text-align: center; /* Center the blog title */
+        }
+
+        .blog-container h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        /* Updated responsive posts */
+        .post {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        .post img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        body.dark-mode .post {
+            background-color: #1e1e1e;
+            box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+        }
+
+        /* Updated responsive partners section */
+        .partners-section {
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .partners-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            padding: 15px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .partner-logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .partner-logo img {
+            max-width: 150px;
+            height: auto;
+            object-fit: contain;
+        }
+
+        /* Fixed partner images for dark/light mode */
+        .partner {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .partner-img {
+            max-width: 150px;
+            height: auto;
+            position: absolute;
+            transition: opacity 0.3s;
+        }
+
+        ody:not(.dark-mode) .partner-img.light-mode {
+            opacity: 1;
+            position: relative;
+        }
+
+        body:not(.dark-mode) .partner-img.dark-mode {
+            opacity: 0;
+        }
+
+        body.dark-mode .partner-img.light-mode {
+            opacity: 0;
+        }
+
+        body.dark-mode .partner-img.dark-mode {
+            opacity: 1;
+            position: relative;
+        }
+
+        .contacts {
+    padding: 50px 20px;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.contact-details {
+    margin-bottom: 30px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-form {
+    width: 90%;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-form button {
+            padding: 12px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .contact-form button:hover {
+            background-color: #0056b3;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        /* Responsive typography */
+        @media (max-width: 768px) {
+            .blog-container h1 {
+                font-size: 2rem;
+            }
+
+            .post h2 {
+                font-size: 1.5rem;
+            }
+
+            .contacts h3 {
+                font-size: 1.8rem;
+            }
+
+            .contact-details p {
+                font-size: 1rem;
+            }
+        }
+
+        /* Your original switch styles */
         .switch {
             position: relative;
             display: inline-block;
@@ -104,7 +321,6 @@
             height: 0;
         }
 
-        /* O botão deslizante */
         .slider {
             position: absolute;
             cursor: pointer;
@@ -129,7 +345,6 @@
             border-radius: 50%;
         }
 
-        /* Quando ativado, muda para Dark Mode */
         input:checked + .slider {
             background-color: #007BFF;
         }
@@ -138,80 +353,70 @@
             transform: translateX(26px);
         }
 
-        /* Oculta o ícone do sol quando estiver no modo escuro */
+        /* Your original icon visibility styles */
         body.dark-mode #sun-icon {
             opacity: 0;
             transform: scale(0.8);
         }
 
-        /* Oculta o ícone da lua quando estiver no modo claro */
         body:not(.dark-mode) #moon-icon {
             opacity: 0;
             transform: scale(0.8);
         }
 
-
-        .blog-container {
-            max-width: 800px;
-            margin: 50px auto;
-            padding: 20px;
-            text-align: center;
+        /* Your original language selector styles */
+        .language-selector {
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        .blog-container h1 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-
-        .post {
-            background: white;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            text-align: left;
-        }
-
-        body.dark-mode .post {
-            background-color: #1e1e1e;
-            box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
-        }
-
-        .post h2 {
-            margin: 0;
-            font-size: 1.8rem;
-        }
-
-        .post p {
-            font-size: 1.1rem;
-            line-height: 1.6;
-        }
-
-        .post a {
-            display: inline-block;
-            margin-top: 10px;
-            color: #007BFF;
-            text-decoration: none;
+        #toggleLanguage {
+            background-color: #007BFF;
+            color: white;
+            font-size: 14px;
+            padding: 6px 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
             font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
 
-        .post a:hover {
-            text-decoration: underline;
+        #toggleLanguage:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        #toggleLanguage.english {
+            background-color: #007BFF;
+        }
+
+        #toggleLanguage.portuguese {
+            background-color: #28a745;
         }
     </style>
 </head>
 <body>
     <header>
         <div class="logo">Anti-Drone</div>
+        <button class="menu-toggle" aria-label="Toggle menu">☰</button>
         <nav>
-            <a href="index.html">Home</a>
-            <a href="index.html#about">About</a>
-            <a href="index.html#team">Our Team</a>
-            <a href="index.html#project">Our Project</a>
-            <a href="blog.html">Blog</a>
-            <a href="index.html#contact">Contact</a>
-        </nav>
+            <a href="index.html" data-en="Home" data-pt="Início">Home</a>
+            <a href="index.html#about" data-en="About" data-pt="Sobre">About</a>
+            <a href="index.html#team" data-en="Our Team" data-pt="Equipa">Our Team</a>
+            <a href="index.html#project" data-en="Our Project" data-pt="Projeto">Our Project</a>
+            <a href="#blog" data-en="Blog" data-pt="Blog">Blog</a>
+            <a href="#contacts" data-en="Contacts" data-pt="Contactos">Contact</a>
+        </nav>      
         <div class="toggle-container">
+            <button id="toggleLanguage" class="english">
+                <span>🇺🇸</span> EN
+            </button>
+
             <svg id="sun-icon" class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="12" cy="12" r="5"></circle>
                 <line x1="12" y1="1" x2="12" y2="3"></line>
@@ -232,43 +437,158 @@
             <svg id="moon-icon" class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
             </svg>
-        </div>               
+        </div>         
     </header>
 
-    <div class="blog-container">
-        <h1>Blog</h1>
-
-        <div class="post">
-            <h2>O impacto dos drones na segurança moderna</h2>
-            <p>Os drones estão revolucionando a segurança e a vigilância em várias indústrias...</p>
-            <a href="#">Leia mais</a>
+    <section id="blog" class="blog">
+        <div class="blog-container">
+            <h1 data-en="Blog" data-pt="Blog">Blog</h1>
+            <div id="posts-container"></div>
         </div>
-
-        <div class="post">
-            <h2>Como funciona a detecção de drones por radar?</h2>
-            <p>A tecnologia de radar pode identificar drones com precisão, diferenciando-os de pássaros ou aviões...</p>
-            <a href="#">Leia mais</a>
+    </section>
+    
+    <section id="partners-section" class="partners-section">
+        <h2 data-en="Partners" data-pt="Parceiros">Partners</h2>
+        <div class="partners-container">
+            <div class="partner-logo">
+                <img src="images/partner1.png" alt="Partner 1">
+            </div>
+            <div class="partner">
+                <img class="partner-img light-mode" src="images/partner2l.png" alt="Partner 2">
+                <img class="partner-img dark-mode" src="images/partner2d.png" alt="Partner 2 Dark Mode">
+            </div>
+            <div class="partner-logo">
+                <img src="images/partner3.png" alt="Partner 3">
+            </div>
+            <div class="partner-logo">
+                <img src="images/partner4.png" alt="Partner 4">
+            </div>
         </div>
+    </section>    
 
-        <div class="post">
-            <h2>Os desafios da regulamentação dos drones</h2>
-            <p>Com o aumento do uso de drones, governos estão implementando novas regras de controle...</p>
-            <a href="#">Leia mais</a>
+    <section id="contacts" class="contacts">
+        <div class="footer">
+            <p>© 2025 - All Rights Reserved.</p>
+            <div class="contact-details">
+                <h3 data-en="Contacts" data-pt="Contactos">Contacts</h3>
+                <p><strong data-en="Address:" data-pt="Morada:">Address:</strong> Av. Rovisco Pais Nº1, 1049-001 Lisboa</p>
+                <p><strong data-en="Email:" data-pt="Email:">Email:</strong><a href="mailto:joao.g.firmino@tecnico.ulisboa.pt">joao.g.firmino@tecnico.ulisboa.pt</a></p>
+            </div>
+            <div class="contact-form">
+                <h3 data-en="Write us" data-pt="Escreva-nos">Write us</h3>
+                <form action="https://formspree.io/f/xovjnyoo" method="POST">
+                    <input type="text" name="name" placeholder="Your Name.." required>
+                    <input type="email" name="email" placeholder="Your Email.." required>
+                    <textarea name="message" placeholder="Your message.." required></textarea>
+                    <button type="submit" data-en="Send" data-pt="Enviar"></button>
+                </form>
+            </div>
         </div>
-    </div>
+    </section>
 
     <script>
-        // Aplica o modo escuro se estiver salvo no localStorage
-        if (localStorage.getItem('darkMode') === 'true') {
-            document.body.classList.add('dark-mode');
-            document.getElementById('darkModeToggle').checked = true;
+        // Your original dark mode script
+if (localStorage.getItem('darkMode') === 'true') {
+    document.body.classList.add('dark-mode');
+    document.getElementById('darkModeToggle').checked = true;
+}
+
+document.getElementById("darkModeToggle").addEventListener("change", function () {
+    document.body.classList.toggle("dark-mode");
+    localStorage.setItem("darkMode", document.body.classList.contains("dark-mode"));
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('nav');
+
+    menuToggle.addEventListener('click', function () {
+        nav.classList.toggle('active');
+    });
+
+    document.addEventListener('click', function (event) {
+        if (!nav.contains(event.target) && !menuToggle.contains(event.target)) {
+            nav.classList.remove('active');
+        }
+    });
+});
+
+    document.addEventListener("DOMContentLoaded", function () {
+    const languageButton = document.getElementById("toggleLanguage");
+    let currentLanguage = localStorage.getItem("language") || "pt"; // Default to PT
+
+    function updateLanguage(lang) {
+        document.querySelectorAll("[data-en]").forEach(element => {
+            element.textContent = element.getAttribute(`data-${lang}`);
+        });
+
+        if (lang === "pt") {
+            languageButton.innerHTML = `<span>🇵🇹</span> PT`;
+            languageButton.classList.remove("english");
+            languageButton.classList.add("portuguese");
+        } else {
+            languageButton.innerHTML = `<span>🇺🇸</span> EN`;
+            languageButton.classList.remove("portuguese");
+            languageButton.classList.add("english");
         }
 
-        // Função para alternar o modo escuro e salvar no localStorage
-        document.getElementById('darkModeToggle').addEventListener('change', function () {
-            document.body.classList.toggle('dark-mode');
-            localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+        localStorage.setItem("language", lang);
+        loadPosts(lang); // Load posts according to language
+    }
+
+    function loadPosts(lang) {
+        const file = lang === "pt" ? "posts-pt.json" : "posts-en.json";
+
+        fetch(file)
+            .then(response => response.json())
+            .then(posts => {
+                const container = document.getElementById("posts-container");
+                container.innerHTML = ""; // Clear previous posts
+
+                posts.forEach(post => {
+                    const postElement = document.createElement("div");
+                    postElement.classList.add("post");
+
+                    postElement.innerHTML = `
+                        <h2>${post.title}</h2>
+                        <img src="${post.image}" alt="${post.title}" style="width:100%; border-radius:10px; margin-bottom:10px;">
+                        <p>${post.content}</p>
+                        <a href="${post.link}">${lang === "pt" ? "Leia mais" : "Read more"}</a>
+                    `;
+
+                    container.appendChild(postElement);
+                });
+            })
+            .catch(error => {
+                console.error("Error loading posts:", error);
+                document.getElementById("posts-container").innerHTML = 
+                    `<p>${lang === "pt" ? "Não foi possível carregar os posts." : "Could not load posts."}</p>`;
+            });
+    }
+
+    // Initialize language
+    updateLanguage(currentLanguage);
+
+    // Language toggle button event listener
+    languageButton.addEventListener("click", function () {
+        currentLanguage = currentLanguage === "pt" ? "en" : "pt";
+        updateLanguage(currentLanguage);
+    });
+
+    // Add smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
         });
+    });
+});
     </script>
 </body>
 </html>

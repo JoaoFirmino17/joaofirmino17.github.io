@@ -59,6 +59,10 @@
             color: #007BFF;
         }
 
+        body.dark-mode header nav a:hover {
+            color: #007BFF;
+        }
+
         .hero {
             background-image: url('images/background.jpeg'); 
             background-size: cover;
@@ -173,7 +177,49 @@
             opacity: 0;
             transform: scale(0.8);
         }
+        
+        /* Estilização para o botão de troca de idioma */
+        .language-selector {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
+        #toggleLanguage {
+            background-color: #007BFF;
+            color: white;
+            font-size: 14px;
+            padding: 6px 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        #toggleLanguage:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        /* Alinhar o botão de idioma com o botão de dark mode */
+        .toggle-container {
+            display: flex;
+            align-items: center;
+            gap: 10px; /* Garante que haja um espaço adequado entre os botões */
+        }
+
+        /* Estilizando o botão de idioma conforme o estado */
+        #toggleLanguage.english {
+            background-color: #007BFF;
+        }
+
+        #toggleLanguage.portuguese {
+            background-color: #28a745;
+        }
 
         /* Seção About */
         .about {
@@ -367,14 +413,18 @@
     <header>
         <div class="logo">Anti-Drone</div>
         <nav>
-            <a href="#">Home</a>
-            <a href="#about">About</a>
-            <a href="#team">Our Team</a>
-            <a href="#project">Our Project</a>
-            <a href="blog.html">Blog</a>
-            <a href="#contacts">Contact</a>
+            <a href="index.html" data-en="Home" data-pt="Início">Home</a>
+            <a href="index.html#about" data-en="About" data-pt="Sobre">About</a>
+            <a href="index.html#team" data-en="Our Team" data-pt="Equipa">Our Team</a>
+            <a href="index.html#project" data-en="Our Project" data-pt="Projeto">Our Project</a>
+            <a href="blog.html" data-en="Blog" data-pt="Blog">Blog</a>
+            <a href="#contacts" data-en="Contacts" data-pt="Contactos">Contact</a>
         </nav>
         <div class="toggle-container">
+            <button id="toggleLanguage" class="english">
+                <span>🇺🇸</span> EN
+            </button>
+
             <svg id="sun-icon" class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="12" cy="12" r="5"></circle>
                 <line x1="12" y1="1" x2="12" y2="3"></line>
@@ -400,19 +450,19 @@
 
     <section class="hero">
         <h1>Anti-Drone</h1>
-        <p>Detection for Communication Jamming System for Security Forces</p>
+        <p data-en="Detection for Communication Jamming System for Security Forces" data-pt="Detecção de Sistema de Bloqueio de Comunicação para Forças de Segurança"></p>
     </section>
 
     <section id="about" class="about">
-        <h2>About</h2>
-        <p>
-            Este projeto visa desenvolver um sistema de detecção e rastreamento de drones utilizando tecnologia de radar. O sistema será capaz de identificar a presença de drones em um determinado espaço aéreo, diferenciando-os de outras aeronaves  ou objetos em movimento. A solução utilizará algoritmos de processamento de sinais para analisar os ecos de radar e técnicas de aprendizado de máquina para classificar e prever a trajetória dos drones. O objetivo é aumentar a segurança em áreas sensíveis, como aeroportos, instalações militares e eventos públicos. 
+        <h2 data-en="About" data-pt="Sobre">About</h2>
+        <p
+            data-en="This project aims to develop a drone detection and tracking system using radar technology. The system will be able to identify the presence of drones in a given airspace, differentiating them from other aircraft or moving objects. The solution will use signal processing algorithms to analyze radar echoes and machine learning techniques to classify and predict the trajectory of drones. The objective is to increase security in sensitive areas, such as airports, military installations and public events." data-pt="Este projeto visa desenvolver um sistema de detecção e rastreamento de drones utilizando tecnologia de radar. O sistema será capaz de identificar a presença de drones em um determinado espaço aéreo, diferenciando-os de outras aeronaves  ou objetos em movimento. A solução utilizará algoritmos de processamento de sinais para analisar os ecos de radar e técnicas de aprendizado de máquina para classificar e prever a trajetória dos drones. O objetivo é aumentar a segurança em áreas sensíveis, como aeroportos, instalações militares e eventos públicos."> 
         </p>
-        <button class="btn-pdf" onclick="openPDF()">Abrir PDF</button>
+        <button class="btn-pdf" onclick="openPDF()"data-en="Open PDF" data-pt="Abrir PDF"></button>
     </section>
 
     <section id="team" class="team">
-        <h2>Our Team</h2>
+        <h2 data-en="Our Team" data-pt="Equipa">Our Team</h2>
         <div class="team-container">
             <div class="team-member">
                 <img src="images/team1.png" alt="Team Member 1">
@@ -448,8 +498,8 @@
     </section>
 
     <section id="project" class="project">
-        <h2>Our Project</h2>
-        <p>Confira nosso vídeo explicativo sobre o projeto Anti-Drone.</p>
+        <h2 data-en="Our Project" data-pt="Projeto">Our Project</h2>
+        <p data-en="Check out our explanatory video about the Anti-Drone project." data-pt="Confira nosso vídeo explicativo sobre o projeto Anti-Drone."></p>
         <div class="video-container">
             <iframe width="1280" height="720" 
                 src="https://www.youtube.com/embed/r8R_vuewTJc" 
@@ -462,7 +512,7 @@
     </section>
 
     <section id="partners" class="partners">
-        <h2>Partners</h2>
+        <h2 data-en="Partners" data-pt="Parceiros">Partners</h2>
         <div class="partners-container">
             <div class="partner-logo">
                 <img src="images/partner1.png" alt="Partner 1">
@@ -484,16 +534,17 @@
         <div class="footer">
             <p>© 2025 - All Rights Reserved.</p>
             <div class="contact-details">
-                <h3>Contacts</h3>
-                <p><strong>Address:</strong> Av. Rovisco Pais Nº1, 1049-001 Lisboa</p>
-                <p><strong>Email:</strong> joao.g.firmino@tecnico.ulisboa.pt</p>
+                <h3 data-en="Contacts" data-pt="Contactos">Contacts</h3>
+                <p><strong data-en="Address:" data-pt="Morada:">Address:</strong> Av. Rovisco Pais Nº1, 1049-001 Lisboa</p>
+                <p><strong data-en="Email:" data-pt="Email:">Email:</strong><a href="mailto:joao.g.firmino@tecnico.ulisboa.pt">joao.g.firmino@tecnico.ulisboa.pt</a></p>
             </div>
             <div class="contact-form">
-                <h3>Write us</h3>
-                <form action="#" method="post">
-                    <input type="email" placeholder="Your email.." required>
-                    <textarea placeholder="Your message.." required></textarea>
-                    <button type="submit">Send</button>
+                <h3 data-en="Write us" data-pt="Escreva-nos">Write us</h3>
+                <form action="https://formspree.io/f/xovjnyoo" method="POST">
+                    <input type="text" name="name" placeholder="Your Name.." required>
+                    <input type="email" name="email" placeholder="Your Email.." required>
+                    <textarea name="message" placeholder="Your message.." required></textarea>
+                    <button type="submit"data-en="Send" data-pt="Enviar"></button>
                 </form>
             </div>
         </div>
@@ -506,12 +557,52 @@
             document.getElementById('darkModeToggle').checked = true;
         }
 
-        // Função para alternar o modo escuro e salvar no localStorage
-        document.getElementById('darkModeToggle').addEventListener('change', function () {
-            document.body.classList.toggle('dark-mode');
-            localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+        // Evento para alternar o modo escuro ao clicar no botão
+        document.getElementById("darkModeToggle").addEventListener("change", function () {
+            document.body.classList.toggle("dark-mode");
+
+            // Salvar no localStorage
+            if (document.body.classList.contains("dark-mode")) {
+                localStorage.setItem("darkMode", "true");
+            } else {
+                localStorage.setItem("darkMode", "false");
+            }
         });
 
+        document.addEventListener("DOMContentLoaded", function () {
+            const languageButton = document.getElementById("toggleLanguage");
+            let currentLanguage = localStorage.getItem("language") || "pt"; // Define o idioma salvo ou padrão (pt)
+
+            function updateLanguage(lang) {
+                // Atualiza os textos da navegação
+                document.querySelectorAll("[data-en]").forEach(element => {
+                    element.textContent = element.getAttribute(`data-${lang}`);
+                });
+
+                // Atualiza o botão de idioma
+                if (lang === "pt") {
+                    languageButton.innerHTML = `<span>🇵🇹</span> PT`;
+                    languageButton.classList.remove("english");
+                    languageButton.classList.add("portuguese");
+                } else {
+                    languageButton.innerHTML = `<span>🇺🇸</span> EN`;
+                    languageButton.classList.remove("portuguese");
+                    languageButton.classList.add("english");
+                }
+
+                // Salva no localStorage
+                localStorage.setItem("language", lang);
+            }   
+
+            // Aplica o idioma salvo ao carregar a página
+            updateLanguage(currentLanguage);
+
+            // Alterna entre os idiomas ao clicar no botão
+            languageButton.addEventListener("click", function () {
+                currentLanguage = currentLanguage === "pt" ? "en" : "pt";
+                updateLanguage(currentLanguage);
+            });
+        });
 
         function openPDF() {
             window.open('teste.pdf', '_blank');
