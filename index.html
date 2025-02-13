@@ -11,15 +11,54 @@
 
         body {
             margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden; /* Evita a rolagem horizontal */
+        }
+
+        body {
             font-family: Arial, sans-serif;
             background-color: #d4d4d4;
             color: #000000;
             transition: background-color 0.3s, color 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            max-width: 100%; /* Garante que o body não ultrapasse a largura da tela */
+            box-sizing: border-box;
         }
 
         body.dark-mode {
             background-color: #121212;
             color: #ffffff;
+        }
+
+        .hero {
+            background-image: url('images/background.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin: 0;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-top: 10px;
         }
 
         header {
@@ -32,11 +71,21 @@
             position: sticky;
             top: 0;
             z-index: 1000;
+            width: 100%;
             transition: background-color 0.3s;
         }
 
         body.dark-mode header {
             background-color: #1e1e1e;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding-left: 10px;
         }
 
         header nav {
@@ -63,29 +112,7 @@
             color: #007BFF;
         }
 
-        .hero {
-            background-image: url('images/background.jpeg'); 
-            background-size: cover;
-            background-position: center;
-            color: white;
-            text-align: center;
-            padding: 100px 20px;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin: 0;
-        }
-
-        .hero p {
-            font-size: 1.5rem;
-            margin-top: 10px;
-        }
+        
 
         .toggle-theme {
             cursor: pointer;
@@ -102,15 +129,14 @@
             background-color: #0056b3;
         }
 
-        /* Container do botão */
         .toggle-container {
             display: flex;
             align-items: center;
             gap: 10px;
             cursor: pointer;
+            margin-right: 10px;
         }
 
-        /* Ícones minimalistas */
         .icon {
             width: 24px;
             height: 24px;
@@ -118,7 +144,6 @@
             transition: opacity 0.3s, transform 0.3s;
         }
 
-        /* Estilização do botão toggle */
         .switch {
             position: relative;
             display: inline-block;
@@ -132,7 +157,6 @@
             height: 0;
         }
 
-        /* O botão deslizante */
         .slider {
             position: absolute;
             cursor: pointer;
@@ -157,7 +181,6 @@
             border-radius: 50%;
         }
 
-        /* Quando ativado, muda para Dark Mode */
         input:checked + .slider {
             background-color: #007BFF;
         }
@@ -166,18 +189,15 @@
             transform: translateX(26px);
         }
 
-        /* Oculta o ícone do sol quando estiver no modo escuro */
         body.dark-mode #sun-icon {
             opacity: 0;
             transform: scale(0.8);
         }
 
-        /* Oculta o ícone da lua quando estiver no modo claro */
         body:not(.dark-mode) #moon-icon {
             opacity: 0;
             transform: scale(0.8);
         }
-        
         /* Estilização para o botão de troca de idioma */
         .language-selector {
             display: flex;
@@ -318,9 +338,10 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
-        .partners {
+        .partners-section {
             text-align: center;
             padding: 50px 20px;
+            width: 100%;
         }
 
         .partners h2 {
@@ -330,20 +351,16 @@
 
         .partners-container {
             display: flex;
-            justify-content: space-around;
+            justify-content: center;
             align-items: center;
             flex-wrap: wrap;
-        }
-
-        .partner-logo {
-            width: 150px;
-            height: 150px;
-            margin: 20px;
+            gap: 20px;
+            margin-top: 30px;
         }
 
         .partner-logo img {
-            width: 100%;
-            height: 100%;
+            width: 150px;
+            height: 150px;
             object-fit: contain;
         }
 
@@ -383,6 +400,16 @@
             line-height: 1.6;
         }
 
+        form {
+            max-width: 900px; /* Define uma largura máxima */
+            width: 90%; /* Mantém o formulário responsivo */
+            margin: 0 auto; /* Centraliza horizontalmente */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+        }
+
         .contact-form input,
         .contact-form textarea {
             width: 100%;
@@ -391,6 +418,7 @@
             border: 1px solid #ccc;
             border-radius: 5px;
             font-size: 1rem;
+            box-sizing: border-box; /* Evita que o padding afete o tamanho do input */
         }
 
         .contact-form button {
@@ -407,11 +435,100 @@
         .contact-form button:hover {
             background-color: #0056b3;
         }
+
+        .menu-icon {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .menu-icon:hover {
+            color: #007BFF;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .menu-icon {
+                display: block;
+            }
+
+            header nav {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background-color: #ececec;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                padding: 20px;
+                z-index: 100;
+            }
+
+            body.dark-mode header nav {
+                background-color: #1e1e1e;
+            }
+
+            header nav.active {
+                display: flex;
+            }
+
+            header nav a {
+                padding: 10px;
+                font-size: 1.2rem;
+                text-align: center;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            }
+
+            body.dark-mode header nav a {
+                border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            }
+        
+            .partners-container {
+                flex-direction: column;
+            }
+
+            .partners-container .partner-logo {
+                margin-bottom: 20px;
+            }
+
+            .contact-form button {
+                padding: 10px 15px;
+            }
+
+            .contact-details h3 {
+                font-size: 1.5rem;
+            }
+
+            .contact-details p {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .partners h2 {
+                font-size: 1.5rem;
+            }
+
+            .partner-logo img {
+                width: 120px;
+                height: 120px;
+            }
+
+            .contact-form input,
+            .contact-form textarea {
+                font-size: 0.9rem;
+            }
+        }
     </style>
 </head>
 <body>
     <header>
-        <div class="logo">Anti-Drone</div>
+        <div class="logo">
+            <span>Anti-Drone</span>
+            <span class="menu-icon" onclick="toggleMenu()">&#9776;</span>
+        </div>
         <nav>
             <a href="index.html" data-en="Home" data-pt="Início">Home</a>
             <a href="index.html#about" data-en="About" data-pt="Sobre">About</a>
@@ -511,7 +628,7 @@
         </div>
     </section>
 
-    <section id="partners" class="partners">
+    <section id="partners-section" class="partners-section">
         <h2 data-en="Partners" data-pt="Parceiros">Partners</h2>
         <div class="partners-container">
             <div class="partner-logo">
@@ -550,6 +667,7 @@
         </div>
     </section>    
 
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
         // Aplica o modo escuro se estiver salvo no localStorage
         if (localStorage.getItem('darkMode') === 'true') {
@@ -601,6 +719,27 @@
             languageButton.addEventListener("click", function () {
                 currentLanguage = currentLanguage === "pt" ? "en" : "pt";
                 updateLanguage(currentLanguage);
+            });
+        });
+
+        function toggleMenu() {
+            document.querySelector('header nav').classList.toggle('active');
+        }
+
+        document.addEventListener("click", function (event) {
+            const menu = document.querySelector("header nav");
+            const menuIcon = document.querySelector(".menu-icon");
+
+            // Se o clique não for no menu ou no botão, fecha o menu
+            if (!menu.contains(event.target) && !menuIcon.contains(event.target)) {
+                menu.classList.remove("active");
+            }
+        });
+
+        // Fecha o menu ao clicar em um item do próprio menu
+        document.querySelectorAll("header nav a").forEach(item => {
+            item.addEventListener("click", () => {
+                document.querySelector("header nav").classList.remove("active");
             });
         });
 
