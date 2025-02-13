@@ -1,0 +1,26 @@
+[
+    {
+        "title": "The impact of drones on modern security",
+        "content": "Drones are revolutionizing security and surveillance in several industries...",
+        "image": "img/drone-seguranca.jpg",
+        "link": "#"
+    },
+    {
+        "title": "How does radar drone detection work?",
+        "content": "Radar technology can accurately identify drones, differentiating them from birds or planes...",
+        "image": "img/radar-drones.jpg",
+        "link": "#"
+    },
+    {
+        "title": "The challenges of drone regulation",
+        "content": "With the increase in the use of drones, governments are implementing new control rules...",
+        "image": "img/regulamentacao-drones.jpg",
+        "link": "#"
+    },
+    {
+        "title": "The challenges of drone regulation",
+        "content": "With the increase in the use of drones, governments are implementing new control rules...",
+        "image": "img/regulamentacao-drones.jpg",
+        "link": "#"
+    }
+]
