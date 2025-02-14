@@ -658,17 +658,18 @@
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
-        // Aplica o modo escuro se estiver salvo no localStorage
         if (localStorage.getItem('darkMode') === 'true') {
             document.body.classList.add('dark-mode');
             document.getElementById('darkModeToggle').checked = true;
         }
 
-        // Evento para alternar o modo escuro ao clicar no botão
         document.getElementById("darkModeToggle").addEventListener("change", function () {
+            const scrollPosition = window.scrollY;
+    
             document.body.classList.toggle("dark-mode");
 
-            // Salvar no localStorage
+            window.scrollTo(0, scrollPosition);
+
             if (document.body.classList.contains("dark-mode")) {
                 localStorage.setItem("darkMode", "true");
             } else {

@@ -13,6 +13,7 @@
 
         html {
             scroll-behavior: smooth;
+            scroll-padding-top: 30px;
         }
 
         body {
@@ -224,12 +225,6 @@
         #toggleLanguage:hover {
             background-color: #0056b3;
             transform: scale(1.05);
-        }
-
-        .toggle-container {
-            display: flex;
-            align-items: center;
-            gap: 10px;
         }
 
         #toggleLanguage.english {
@@ -545,6 +540,9 @@
         }
 
         @media (max-width: 480px) {
+            html {
+                scroll-padding-top: 60px;
+            }
             .toggle-container {
                 gap: 5px;
             }
@@ -584,10 +582,10 @@
             <span class="menu-icon" onclick="toggleMenu()">&#9776;</span>
         </div>
         <nav>
-            <a href="index.html" data-en="Home" data-pt="Início">Home</a>
-            <a href="index.html#about" data-en="About" data-pt="Sobre">About</a>
-            <a href="index.html#team" data-en="Our Team" data-pt="Equipa">Our Team</a>
-            <a href="index.html#project" data-en="Our Project" data-pt="Projeto">Our Project</a>
+            <a href="#" data-en="Home" data-pt="Início">Home</a>
+            <a href="#about" data-en="About" data-pt="Sobre">About</a>
+            <a href="#team" data-en="Our Team" data-pt="Equipa">Our Team</a>
+            <a href="#project" data-en="Our Project" data-pt="Projeto">Our Project</a>
             <a href="blog.html" data-en="Blog" data-pt="Blog">Blog</a>
             <a href="#contacts" data-en="Contacts" data-pt="Contactos">Contact</a>
         </nav>
@@ -723,17 +721,18 @@
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
-        // Aplica o modo escuro se estiver salvo no localStorage
         if (localStorage.getItem('darkMode') === 'true') {
             document.body.classList.add('dark-mode');
             document.getElementById('darkModeToggle').checked = true;
         }
-
-        // Evento para alternar o modo escuro ao clicar no botão
+        
         document.getElementById("darkModeToggle").addEventListener("change", function () {
+            const scrollPosition = window.scrollY;
+    
             document.body.classList.toggle("dark-mode");
 
-            // Salvar no localStorage
+            window.scrollTo(0, scrollPosition);
+
             if (document.body.classList.contains("dark-mode")) {
                 localStorage.setItem("darkMode", "true");
             } else {

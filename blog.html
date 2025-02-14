@@ -333,7 +333,6 @@
             margin-bottom: 20px;
             border-radius: 10px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            text-align: left;
         }
 
         body.dark-mode .post {
@@ -537,7 +536,7 @@
             <a href="index.html#about" data-en="About" data-pt="Sobre">About</a>
             <a href="index.html#team" data-en="Our Team" data-pt="Equipa">Our Team</a>
             <a href="index.html#project" data-en="Our Project" data-pt="Projeto">Our Project</a>
-            <a href="#blog" data-en="Blog" data-pt="Blog">Blog</a>
+            <a href="#" data-en="Blog" data-pt="Blog">Blog</a>
             <a href="#contacts" data-en="Contacts" data-pt="Contactos">Contact</a>
         </nav>      
         <div class="toggle-container">
@@ -616,24 +615,24 @@
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
-        // Aplica o modo escuro se estiver salvo no localStorage
         if (localStorage.getItem('darkMode') === 'true') {
             document.body.classList.add('dark-mode');
             document.getElementById('darkModeToggle').checked = true;
         }
-
-        // Evento para alternar o modo escuro ao clicar no botão
+        
         document.getElementById("darkModeToggle").addEventListener("change", function () {
+            const scrollPosition = window.scrollY;
+    
             document.body.classList.toggle("dark-mode");
 
-            // Salvar no localStorage
+            window.scrollTo(0, scrollPosition);
+
             if (document.body.classList.contains("dark-mode")) {
                 localStorage.setItem("darkMode", "true");
             } else {
                 localStorage.setItem("darkMode", "false");
             }
         });
-
 
         document.addEventListener("DOMContentLoaded", function () {
             const languageButton = document.getElementById("toggleLanguage");
