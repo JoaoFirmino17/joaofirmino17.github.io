@@ -173,7 +173,7 @@
             opacity: 0;
             transform: scale(0.8);
         }
-
+        
         .language-selector {
             display: flex;
             align-items: center;
@@ -212,6 +212,89 @@
 
         #toggleLanguage.portuguese {
             background-color: #28a745;
+        }
+
+        .post-container {
+            max-width: 1320px;
+            max-width: 90%;
+            margin: 40px auto 20px;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        body.dark-mode .post-container {
+            background: #1e1e1e;
+        }
+
+        .post-container h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        body.dark-mode .post-container h1 {
+            color: #ffffff;
+        }
+
+        .post-date {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        body.dark-mode .post-date {
+            color: #aaa;
+        }
+
+        .post-content {
+            margin: 30px 0;
+            line-height: 1.6;
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            gap: 20px;
+        }
+
+        .nav-buttons button {
+            padding: 12px 24px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            min-width: 140px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .nav-buttons button:hover {
+            background-color: #0056b3;
+            transform: translateX(0);
+        }
+
+        .nav-buttons button.prev:hover {
+            transform: translateX(-5px);
+        }
+
+        .nav-buttons button.next:hover {
+            transform: translateX(5px);
+        }
+
+        .post-image {
+            max-width: 100%;
+            height: auto;
+            margin: 20px 0;
+            border-radius: 8px;
         }
 
         .partners-section {
@@ -313,56 +396,6 @@
             background-color: #0056b3;
         }
 
-        .blog-container {
-            max-width: 1200px;
-            margin: 50px auto;
-            padding: 20px;
-            text-align: center;
-            width: 100%;
-            box-sizing: border-box;
-        }
-
-        .blog-container h1 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-
-        .post {
-            background: white;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            text-align: left;
-        }
-
-        body.dark-mode .post {
-            background-color: #1e1e1e;
-            box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
-        }
-
-        .post h2 {
-            margin: 0;
-            font-size: 1.8rem;
-        }
-
-        .post p {
-            font-size: 1.1rem;
-            line-height: 1.6;
-        }
-
-        .post a {
-            display: inline-block;
-            margin-top: 10px;
-            color: #007BFF;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .post a:hover {
-            text-decoration: underline;
-        }
-
         .menu-icon {
             display: none;
             font-size: 1.8rem;
@@ -412,14 +445,6 @@
                 border-bottom: 1px solid rgba(255, 255, 255, 0.2);
             }
         
-            .blog-container {
-                padding: 15px;
-            }
-
-            .post {
-                padding: 15px;
-            }
-
             .partners-container {
                 flex-direction: row;
             }
@@ -442,22 +467,6 @@
         }
 
         @media (max-width: 480px) {
-            .blog-container h1 {
-                font-size: 2rem;
-            }
-
-            .post h2 {
-                font-size: 1.5rem;
-            }
-
-            .post p {
-                font-size: 1rem;
-            }
-
-            .post a {
-                font-size: 1rem;
-            }
-
             .partner-logo img {
                 width: 120px;
                 height: 120px;
@@ -475,7 +484,7 @@
                 padding: 10px;
             }
 
-            .blog-container,
+            .post-container,
             .partners-section,
             .contacts {
                 width: 100%;
@@ -523,6 +532,15 @@
                 width: 20px;
                 height: 20px;
             }
+
+            .nav-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .nav-buttons button {
+                max-width: 100%;
+            }
         }
     </style>
 </head>
@@ -537,9 +555,9 @@
             <a href="index.html#about" data-en="About" data-pt="Sobre">About</a>
             <a href="index.html#team" data-en="Our Team" data-pt="Equipa">Our Team</a>
             <a href="index.html#project" data-en="Our Project" data-pt="Projeto">Our Project</a>
-            <a href="#blog" data-en="Blog" data-pt="Blog">Blog</a>
+            <a href="blog.html" data-en="Blog" data-pt="Blog">Blog</a>
             <a href="#contacts" data-en="Contacts" data-pt="Contactos">Contact</a>
-        </nav>      
+        </nav>
         <div class="toggle-container">
             <button id="toggleLanguage" class="english">
                 <span>🇺🇸</span> EN
@@ -565,13 +583,37 @@
             <svg id="moon-icon" class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
             </svg>
-        </div>         
+        </div>        
     </header>
+    
+    <section class="post-container">
+        <h1 data-en="Test Post" data-pt="Post de teste">Test Post</h1>
+        <div class="post-date">
+            <strong data-en="Date:" data-pt="Data:">Date:</strong> 
+            <span data-en="February 14, 2025" data-pt="14 de fevereiro de 2025">February 14, 2025</span>
+        </div>
+        
+        <div class="post-content">
+            <p data-en="This is the content of my first blog post. Here I can add interesting texts, images and much more! Aut aliquid mollitia est laboriosam quod et eligendi dolorem! Quo temporibus nisi ut saepe amet et animi dolor eos explicabo ipsa et deserunt perferendis non velit recusandae hic rerum delectus.
 
-    <section id="blog" class="blog">
-        <div class="blog-container">
-            <h1 data-en="Blog" data-pt="Blog">Blog</h1>
-            <div id="posts-container"></div>
+            A laudantium autem sed omnis voluptates aut laudantium incidunt quo veniam soluta in laudantium cupiditate rem sint debitis. Eos ipsum quasi ut odio sunt aut aspernatur ullam aut quisquam consequatur. Est architecto quasi ex dolorum voluptatibus eos commodi rerum ut ipsum assumenda in atque harum eum velit veniam.
+            
+            Aut iste sequi sed distinctio iure ex fuga voluptatum. Cum voluptatem odit aut laboriosam laboriosam sit aperiam quis ut consectetur distinctio vel accusantium deleniti. Ut nesciunt inventore est dolores dolores est harum omnis est velit maiores. Aut rerum galisum eum beatae magnam et possimus reiciendis eum perferendis illum ab perspiciatis sapiente." 
+               data-pt="Este é o conteúdo do meu primeiro post no blog. Aqui posso adicionar textos interessantes, imagens e muito mais! Aut dignissimos provident aut omnis quam et quidem perferendis in optio dolore. Est aspernatur necessitatibus aut fugiat distinctio ex corrupti doloremque At fuga consequatur.
+
+               Id animi quia ut distinctio dolorum est corrupti facere et harum rerum non voluptatem officiis At odio culpa sed doloribus velit. Qui exercitationem quam et ipsum voluptas sed nihil aliquid.
+               
+               Aut recusandae illum aut voluptas nisi vel ipsum animi ea sunt tempora. Id aspernatur quae ut repudiandae commodi eum expedita dolores. Et excepturi nesciunt sed voluptate culpa et nemo culpa ut dolor enim est totam consequatur eos similique labore ut incidunt illo.">
+            </p>
+            <img class="post-image" src="images/post_t.png" alt="Post image">
+        </div>
+
+        <div class="nav-buttons">
+            <button class="prev" onclick="window.location.href='post-anterior.html'">
+                <span data-en="Previous Post" data-pt="Post Anterior">Previous Post</span>
+            </button>
+            <button class="next" onclick="window.location.href='post-proximo.html'">
+                <span data-en="Next Post" data-pt="Próximo Post">Next Post</span>
         </div>
     </section>
 
@@ -592,7 +634,7 @@
                 <img src="images/partner4.png" alt="Partner 4">
             </div>
         </div>
-    </section>    
+    </section>
 
     <section id="contacts" class="contacts">
         <div class="footer">
@@ -608,11 +650,11 @@
                     <input type="text" name="name" placeholder="Your Name.." required>
                     <input type="email" name="email" placeholder="Your Email.." required>
                     <textarea name="message" placeholder="Your message.." required></textarea>
-                    <button type="submit" data-en="Send" data-pt="Enviar"></button>
+                    <button type="submit"data-en="Send" data-pt="Enviar"></button>
                 </form>
             </div>
         </div>
-    </section>        
+    </section>    
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
@@ -634,61 +676,35 @@
             }
         });
 
-
         document.addEventListener("DOMContentLoaded", function () {
             const languageButton = document.getElementById("toggleLanguage");
-            let currentLanguage = localStorage.getItem("language") || "pt"; // Padrão para PT
+            let currentLanguage = localStorage.getItem("language") || "pt"; // Define o idioma salvo ou padrão (pt)
 
             function updateLanguage(lang) {
+                // Atualiza os textos da navegação
                 document.querySelectorAll("[data-en]").forEach(element => {
-                element.textContent = element.getAttribute(`data-${lang}`);
-            });
-
-            if (lang === "pt") {
-                languageButton.innerHTML = `<span>🇵🇹</span> PT`;
-                languageButton.classList.remove("english");
-                languageButton.classList.add("portuguese");
-            } else {
-                languageButton.innerHTML = `<span>🇺🇸</span> EN`;
-                languageButton.classList.remove("portuguese");
-                languageButton.classList.add("english");
-            }
-
-            localStorage.setItem("language", lang);
-            loadPosts(lang); // Carregar os posts conforme a linguagem
-            }
-
-            function loadPosts(lang) {
-                const file = lang === "pt" ? "posts-pt.json" : "posts-en.json";
-
-                fetch(file)
-                .then(response => response.json())
-                .then(posts => {
-                    const container = document.getElementById("posts-container");
-                    container.innerHTML = ""; // Limpa os posts anteriores
-
-                    posts.forEach(post => {
-                        const postElement = document.createElement("div");
-                        postElement.classList.add("post");
-
-                        postElement.innerHTML = `
-                            <h2>${post.title}</h2>
-                            <img src="${post.image}" alt="${post.title}" style="width:100%; border-radius:10px; margin-bottom:10px;">
-                            <p>${post.content}</p>
-                            <a href="${post.link}">${lang === "pt" ? "Leia mais" : "Read more"}</a>
-                        `;
-
-                        container.appendChild(postElement);
-                    });
-                })
-                .catch(error => {
-                    console.error("Erro ao carregar os posts:", error);
-                    document.getElementById("posts-container").innerHTML = "<p>Não foi possível carregar os posts.</p>";
+                    element.textContent = element.getAttribute(`data-${lang}`);
                 });
-            }
 
+                // Atualiza o botão de idioma
+                if (lang === "pt") {
+                    languageButton.innerHTML = `<span>🇵🇹</span> PT`;
+                    languageButton.classList.remove("english");
+                    languageButton.classList.add("portuguese");
+                } else {
+                    languageButton.innerHTML = `<span>🇺🇸</span> EN`;
+                    languageButton.classList.remove("portuguese");
+                    languageButton.classList.add("english");
+                }
+
+                // Salva no localStorage
+                localStorage.setItem("language", lang);
+            }   
+
+            // Aplica o idioma salvo ao carregar a página
             updateLanguage(currentLanguage);
 
+            // Alterna entre os idiomas ao clicar no botão
             languageButton.addEventListener("click", function () {
                 currentLanguage = currentLanguage === "pt" ? "en" : "pt";
                 updateLanguage(currentLanguage);

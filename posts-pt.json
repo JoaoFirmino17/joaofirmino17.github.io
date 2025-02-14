@@ -1,44 +1,14 @@
 [
     {
-        "title": "O impacto dos drones na segurança moderna",
-        "content": "Os drones estão revolucionando a segurança e a vigilância em várias indústrias...",
-        "image": "img/drone-seguranca.jpg",
-        "link": "#"
+        "title": "Post de teste",
+        "content": "Este é o conteúdo do meu primeiro post no blog. Aqui posso adicionar textos interessantes, imagens e muito mais!",
+        "image": "images/post_t.png",
+        "link": "post_t.html"
     },
     {
         "title": "Como funciona a detecção de drones por radar?",
         "content": "A tecnologia de radar pode identificar drones com precisão, diferenciando-os de pássaros ou aviões...",
         "image": "img/radar-drones.jpg",
-        "link": "#"
-    },
-    {
-        "title": "Os desafios da regulamentação dos drones",
-        "content": "Com o aumento do uso de drones, governos estão implementando novas regras de controle...",
-        "image": "img/regulamentacao-drones.jpg",
-        "link": "#"
-    },
-    {
-        "title": "Os desafios da regulamentação dos drones",
-        "content": "Com o aumento do uso de drones, governos estão implementando novas regras de controle...",
-        "image": "img/regulamentacao-drones.jpg",
-        "link": "#"
-    },
-    {
-        "title": "Os desafios da regulamentação dos drones",
-        "content": "Com o aumento do uso de drones, governos estão implementando novas regras de controle...",
-        "image": "img/regulamentacao-drones.jpg",
-        "link": "#"
-    },
-    {
-        "title": "Os desafios da regulamentação dos drones",
-        "content": "Com o aumento do uso de drones, governos estão implementando novas regras de controle...",
-        "image": "img/regulamentacao-drones.jpg",
-        "link": "#"
-    },
-    {
-        "title": "Os desafios da regulamentação dos drones",
-        "content": "Com o aumento do uso de drones, governos estão implementando novas regras de controle...",
-        "image": "img/regulamentacao-drones.jpg",
         "link": "#"
     }
 ]

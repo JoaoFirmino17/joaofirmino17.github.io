@@ -5,16 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anti-Drone</title>
     <style>
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
+        * {
             margin: 0;
             padding: 0;
-            width: 100%;
-            height: 100%;
-            overflow-x: hidden; /* Evita a rolagem horizontal */
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -26,8 +24,13 @@
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
-            max-width: 100%; /* Garante que o body não ultrapasse a largura da tela */
+            max-width: 100%; 
             box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden;
         }
 
         body.dark-mode {
@@ -111,8 +114,6 @@
         body.dark-mode header nav a:hover {
             color: #007BFF;
         }
-
-        
 
         .toggle-theme {
             cursor: pointer;
@@ -198,7 +199,7 @@
             opacity: 0;
             transform: scale(0.8);
         }
-        /* Estilização para o botão de troca de idioma */
+        
         .language-selector {
             display: flex;
             align-items: center;
@@ -225,14 +226,12 @@
             transform: scale(1.05);
         }
 
-        /* Alinhar o botão de idioma com o botão de dark mode */
         .toggle-container {
             display: flex;
             align-items: center;
-            gap: 10px; /* Garante que haja um espaço adequado entre os botões */
+            gap: 10px;
         }
 
-        /* Estilizando o botão de idioma conforme o estado */
         #toggleLanguage.english {
             background-color: #007BFF;
         }
@@ -241,11 +240,10 @@
             background-color: #28a745;
         }
 
-        /* Seção About */
         .about {
-            padding: 50px 20px;
+            padding: 25px 20px;
             text-align: center;
-            max-width: 800px;
+            max-width: 1000px;
             margin: 0 auto;
         }
 
@@ -275,12 +273,11 @@
             background-color: #0056b3;
         }
 
-        /* Seção Our Team */
         .team {
             text-align: center;
             width: 100%;
-            margin: 0 auto; /* Se estava com algum valor maior, pode estar empurrando para baixo */
-            padding-top: 30px; /* Se necessário, ajuste o padding-top */
+            margin: 0 auto;
+            padding-top: 30px;
             margin-bottom: 20px;
         }
 
@@ -294,7 +291,8 @@
             grid-template-columns: repeat(3, 1fr);
             gap: 20px;
             justify-content: center;
-            max-width: 800px;
+            width: 100%;
+            max-width: 1000px;
             margin: 0 auto;
         }
 
@@ -318,12 +316,12 @@
 
         .project {
             text-align: center;
-            padding: 50px 20px;
+            padding: 25px 20px;
         }
 
         .project h2 {
             font-size: 2rem;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
 
         .video-container {
@@ -340,13 +338,14 @@
 
         .partners-section {
             text-align: center;
-            padding: 50px 20px;
+            padding: 25px 20px;
             width: 100%;
         }
 
-        .partners h2 {
+        .partners-section h2 {
             font-size: 2rem;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
+            text-align: center;
         }
 
         .partners-container {
@@ -355,7 +354,7 @@
             align-items: center;
             flex-wrap: wrap;
             gap: 20px;
-            margin-top: 30px;
+            margin-top: 10px;
         }
 
         .partner-logo img {
@@ -377,12 +376,12 @@
         }
 
         .contacts {
-            padding: 50px 20px;
+            padding: 25px 20px;
             text-align: center;
         }
 
         .footer {
-            max-width: 900px;
+            max-width: 1500px;
             margin: 0 auto;
         }
 
@@ -401,7 +400,7 @@
         }
 
         form {
-            max-width: 900px; /* Define uma largura máxima */
+            max-width: 1200px; /* Define uma largura máxima */
             width: 90%; /* Mantém o formulário responsivo */
             margin: 0 auto; /* Centraliza horizontalmente */
             padding: 20px;
@@ -486,11 +485,11 @@
             }
         
             .partners-container {
-                flex-direction: column;
+                flex-direction: row;
             }
 
             .partners-container .partner-logo {
-                margin-bottom: 20px;
+                margin-bottom: 10px;
             }
 
             .contact-form button {
@@ -507,10 +506,6 @@
         }
 
         @media (max-width: 480px) {
-            .partners h2 {
-                font-size: 1.5rem;
-            }
-
             .partner-logo img {
                 width: 120px;
                 height: 120px;
@@ -519,6 +514,65 @@
             .contact-form input,
             .contact-form textarea {
                 font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                width: 100%;
+                padding: 10px;
+            }
+
+            .hero, 
+            .about,
+            .team,
+            .project,
+            .partners-section,
+            .contacts {
+                width: 100%;
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
+            .team-container {
+                padding: 0 10px;
+            }
+
+            form {
+                width: 100%;
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .toggle-container {
+                gap: 5px;
+            }
+
+            #toggleLanguage {
+                font-size: 12px;
+                padding: 4px 8px;
+            }
+
+            .switch {
+                width: 40px;
+                height: 20px;
+            }
+
+            .slider:before {
+                width: 16px;
+                height: 16px;
+                left: 2px;
+                bottom: 2px;
+            }
+
+            input:checked + .slider:before {
+                transform: translateX(20px);
+            }
+
+            .icon {
+                width: 20px;
+                height: 20px;
             }
         }
     </style>
