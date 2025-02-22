@@ -1,14 +1,14 @@
 [
     {
-        "title": "Post de teste",
-        "content": "Este é o conteúdo do meu primeiro post no blog. Aqui posso adicionar textos interessantes, imagens e muito mais!",
+        "title": "Modelação do Nosso Sistema de Deteção Anti-Drones: Do Conceito à Implementação",
+        "content": "Ao embarcarmos no desenvolvimento do nosso sistema de deteção e neutralização de drones, um dos primeiros desafios que enfrentámos foi definir a abordagem mais eficaz para a implementação. Com diversas tecnologias disponíveis e várias metodologias de deteção a considerar, dedicámos um tempo significativo à pesquisa e discussão antes de chegarmos a um plano concreto...",
         "image": "images/post_t.png",
-        "link": "post_t.html"
+        "link": "post_1.html"
     },
     {
-        "title": "Como funciona a detecção de drones por radar?",
-        "content": "A tecnologia de radar pode identificar drones com precisão, diferenciando-os de pássaros ou aviões...",
+        "title": "Finalização da Nossa Proposta de Projeto: Foco na Deteção e em Soluções Baseadas em IA",
+        "content": "À medida que avançávamos com o nosso projeto, uma das fases mais cruciais foi a finalização da Proposta de Projeto e a definição da direção exata que tomaríamos. Depois de considerar várias abordagens e discutir as nossas opções com especialistas do setor, conseguimos afunilar o nosso foco e tomar decisões fundamentais sobre a estrutura do sistema...",
         "image": "img/radar-drones.jpg",
-        "link": "#"
+        "link": "post_2.html"
     }
 ]

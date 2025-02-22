@@ -279,6 +279,7 @@
         .team h2 {
             font-size: 2rem;
             text-align: center;
+            margin-bottom: 10px;
         }
 
         .team-container {
@@ -293,20 +294,34 @@
 
         .team-member {
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex-wrap: wrap;
+            word-break: break-word;
         }
 
+        
         .team-member img {
             width: 100%;
             max-width: 150px;
             height: auto;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            object-fit: cover; 
         }
+
 
         .team-member p {
             font-size: 1.1rem;
             font-weight: bold;
             margin: 5px 0;
+        }
+
+        .team-member .description {
+            font-size: 1rem;
+            line-height: 1.6;
+            text-align: center;
         }
 
         .project {
@@ -318,6 +333,14 @@
             font-size: 2rem;
             margin-bottom: 10px;
         }
+
+        /* Para a seção de Schedule */
+.project img {
+    display: block; /* Faz a imagem ser um bloco */
+    margin: 0 auto; /* Centraliza a imagem */
+    max-width: 100%; /* Garante que a imagem não exceda a largura do contêiner */
+    height: auto; /* Mantém a proporção da imagem */
+}
 
         .video-container {
             display: flex;
@@ -373,6 +396,7 @@
         .contacts {
             padding: 25px 20px;
             text-align: center;
+            word-break: break-word;
         }
 
         .footer {
@@ -441,7 +465,6 @@
             color: #007BFF;
         }
 
-        /* Media Queries */
         @media (max-width: 768px) {
             .menu-icon {
                 display: block;
@@ -636,39 +659,51 @@
             <div class="team-member">
                 <img src="images/team1.png" alt="Team Member 1">
                 <p>Rodrigo Sanguino</p>
+                <p data-en="Embedded Systems Engineer" data-pt="Engenheiro de Sistemas Embebidos"></p>
                 <p>ist184342</p>
+                <p class="description" data-en="Works on research, prototype testing, and code development for embedded systems." data-pt="Trabalha na investigação, teste de protótipos e desenvolvimento de código para sistemas embebidos."></p>
             </div>
             <div class="team-member">
                 <img src="images/team2.png" alt="Team Member 2">
                 <p>Guilherme Martins</p>
+                <p data-en="Project Manager" data-pt="Gestor de Projeto"></p>
                 <p>ist1106274</p>
+                <p class="description" data-en="Oversees project coordination, team management, and partner engagement to ensure successful execution." data-pt="Supervisiona a coordenação do projeto, a gestão da equipa e o envolvimento com parceiros para garantir uma execução bem-sucedida."></p>
             </div>
             <div class="team-member">
                 <img src="images/team3.png" alt="Team Member 3">
                 <p>Francisco Rodrigues</p>
+                <p data-en="Technical Lead" data-pt="Líder Técnico"></p>
                 <p>ist1106695</p>
+                <p class="description" data-en="Conducts initial research, integrates sensors, and manages technical aspects of the project." data-pt="Realiza a pesquisa inicial, integra sensores e gere os aspetos técnicos do projeto."></p>
             </div>
             <div class="team-member">
                 <img src="images/team4.png" alt="Team Member 4">
                 <p>Guilherme Luís</p>
+                <p data-en="Systems Analyst" data-pt="Analista de Sistemas"></p>
                 <p>ist1106755</p>
+                <p class="description" data-en="Conducts theoretical analysis, testing, and financial management to optimize project resources." data-pt="Realiza análise teórica, testes e gestão financeira para otimizar os recursos do projeto."></p>
             </div>
             <div class="team-member">
                 <img src="images/team5.png" alt="Team Member 5">
                 <p>João Firmino</p>
+                <p data-en="Software Developer" data-pt="Desenvolvedor de Software"></p>
                 <p>ist1107485</p>
+                <p class="description" data-en="Develops and maintains the website and web application to support project functionalities." data-pt="Desenvolve e mantém o website e a aplicação web para suportar as funcionalidades do projeto."></p>
             </div>
             <div class="team-member">
                 <img src="images/team6.png" alt="Team Member 6">
                 <p>Afonso de Mello</p>
+                <p data-en="R&D Engineer" data-pt="Engenheiro de R&D"></p>
                 <p>ist1107495</p>
+                <p class="description" data-en="Focuses on initial research, partnerships, and sensor integration for technological advancements." data-pt="Foca-se na pesquisa inicial, parcerias e integração de sensores para avanços tecnológicos."></p>
             </div>
         </div>
     </section>
-
+    
     <section id="project" class="project">
         <h2 data-en="Our Project" data-pt="Projeto">Our Project</h2>
-        <p data-en="Check out our explanatory video about the Anti-Drone project." data-pt="Confira nosso vídeo explicativo sobre o projeto Anti-Drone."></p>
+        <p data-en="Check out our explanatory video about the Anti-Drone project." data-pt="Confire o nosso vídeo explicativo sobre o projeto Anti-Drone."></p>
         <div class="video-container">
             <iframe width="1280" height="720" 
                 src="https://www.youtube.com/embed/r8R_vuewTJc" 
@@ -678,6 +713,12 @@
                 allowfullscreen>
             </iframe>
         </div>
+    </section>
+    
+    <section id="project" class="project">
+        <h2 data-en="Our Schedule" data-pt="Planeamento">Our Schedule</h2>
+        <p data-en="Check out our schedule." data-pt="Confire o nosso planeamento."></p>
+        <img src="images/Schedule.jpg" alt="Schedule">
     </section>
 
     <section id="partners-section" class="partners-section">
@@ -705,7 +746,12 @@
             <div class="contact-details">
                 <h3 data-en="Contacts" data-pt="Contactos">Contacts</h3>
                 <p><strong data-en="Address:" data-pt="Morada:">Address:</strong> Av. Rovisco Pais Nº1, 1049-001 Lisboa</p>
+                <p><strong data-en="Email:" data-pt="Email:">Email:</strong><a href="mailto:afonsodemello@tecnico.ulisboa.pt">afonsodemello@tecnico.ulisboa.pt</a></p>
+                <p><strong data-en="Email:" data-pt="Email:">Email:</strong><a href="mailto:francisco.b.rodrigues@tecnico.ulisboa.pt">francisco.b.rodrigues@tecnico.ulisboa.pt</a></p>
+                <p><strong data-en="Email:" data-pt="Email:">Email:</strong><a href="mailto:guilherme.candeias.martins@tecnico.ulisboa.pt">guilherme.candeias.martins@tecnico.ulisboa.pt</a></p>
+                <p><strong data-en="Email:" data-pt="Email:">Email:</strong><a href="mailto:guilherme.costa.barata.luis@tecnico.ulisboa.pt">guilherme.costa.barata.luis@tecnico.ulisboa.pt</a></p>
                 <p><strong data-en="Email:" data-pt="Email:">Email:</strong><a href="mailto:joao.g.firmino@tecnico.ulisboa.pt">joao.g.firmino@tecnico.ulisboa.pt</a></p>
+                <p><strong data-en="Email:" data-pt="Email:">Email:</strong><a href="mailto:sanguino.rodrigo@gmail.com">sanguino.rodrigo@gmail.com</a></p> 
             </div>
             <div class="contact-form">
                 <h3 data-en="Write us" data-pt="Escreva-nos">Write us</h3>
@@ -797,7 +843,7 @@
         });
 
         function openPDF() {
-            window.open('teste.pdf', '_blank');
+            window.open('Anti-Drone_apresentação.pdf', '_blank');
         }
     </script>
 </body>
