@@ -2,13 +2,13 @@
     {
         "title": "Shaping Our Anti-Drone Detection System: From Concept to Implementation",
         "content": "As we set out to develop our anti-drone detection and jamming system, one of the first challenges we faced was defining the most effective approach for implementation. With numerous technologies available and various detection methodologies to consider, we dedicated significant time to research and discussion before settling on a concrete plan...",
-        "image": "images/post_t.png",
+        "image": "images/post_1.png",
         "link": "post_1.html"
     },
     {
         "title": "Finalizing Our Project Proposal: Focusing on Detection and AI-Driven Solutions",
         "content": "As we moved forward with our project, one of the most crucial stages was finalizing our Project Proposal and defining the exact direction we would take. After considering several different approaches and discussing our options with industry experts, we were able to narrow down our focus and make the key decision on how we would structure our system...",
-        "image": "img/radar-drones.jpg",
+        "image": "img/post_2.jpg",
         "link": "post_2.html"
     }
 ]

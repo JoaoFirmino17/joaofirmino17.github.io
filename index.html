@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anti-Drone</title>
     <style>
@@ -32,6 +33,26 @@
             width: 100%;
             height: 100%;
             overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #007BFF; 
+            border-radius: 10px; 
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #b6b6b6; 
+            border-radius: 10px; 
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: #0056b3; 
         }
 
         body.dark-mode {
@@ -294,34 +315,72 @@
 
         .team-member {
             text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            flex-wrap: wrap;
-            word-break: break-word;
+            position: relative;
+            overflow: hidden;
+            padding-bottom: 40px;
         }
 
-        
         .team-member img {
             width: 100%;
             max-width: 150px;
             height: auto;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            object-fit: cover; 
+            transition: opacity 0.3s ease-in-out;
         }
 
-
-        .team-member p {
-            font-size: 1.1rem;
-            font-weight: bold;
-            margin: 5px 0;
-        }
-
-        .team-member .description {
-            font-size: 1rem;
-            line-height: 1.6;
+        .team-member .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+            border-radius: 10px;
             text-align: center;
+            padding: 10px;
+        }
+
+        .team-member:hover img {
+            opacity: 0.3;
+        }
+
+        .team-member:hover .overlay {
+            opacity: 1;
+        }
+
+        .social-icons {
+            margin-top: 10px;
+            position: absolute;
+            bottom: 5px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-icons a {
+            text-decoration: none;
+            font-size: 20px;
+            color: #333;
+            background: white;
+            padding: 5px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+        }
+
+        .social-icons a:hover {
+            color: #0073b1;
         }
 
         .project {
@@ -334,13 +393,12 @@
             margin-bottom: 10px;
         }
 
-        /* Para a seção de Schedule */
-.project img {
-    display: block; /* Faz a imagem ser um bloco */
-    margin: 0 auto; /* Centraliza a imagem */
-    max-width: 100%; /* Garante que a imagem não exceda a largura do contêiner */
-    height: auto; /* Mantém a proporção da imagem */
-}
+        .project img {
+            display: block; 
+            margin: 0 auto; 
+            max-width: 100%; 
+            height: auto; 
+        }
 
         .video-container {
             display: flex;
@@ -609,6 +667,7 @@
             <a href="#about" data-en="About" data-pt="Sobre">About</a>
             <a href="#team" data-en="Our Team" data-pt="Equipa">Our Team</a>
             <a href="#project" data-en="Our Project" data-pt="Projeto">Our Project</a>
+            <a href="#schedule" data-en="Our Schedule" data-pt="Planeamento">Our Schedule</a>
             <a href="blog.html" data-en="Blog" data-pt="Blog">Blog</a>
             <a href="#contacts" data-en="Contacts" data-pt="Contactos">Contact</a>
         </nav>
@@ -657,53 +716,77 @@
         <h2 data-en="Our Team" data-pt="Equipa">Our Team</h2>
         <div class="team-container">
             <div class="team-member">
-                <img src="images/team1.png" alt="Team Member 1">
+                <img src="images/team1.png" alt="Rodrigo Sanguino">
+                <div class="overlay" data-en="Works on research, prototype testing, and code development for embedded systems." data-pt="Trabalha na investigação, teste de protótipos e desenvolvimento de código para sistemas embebidos."></div>
                 <p>Rodrigo Sanguino</p>
                 <p data-en="Embedded Systems Engineer" data-pt="Engenheiro de Sistemas Embebidos"></p>
                 <p>ist184342</p>
-                <p class="description" data-en="Works on research, prototype testing, and code development for embedded systems." data-pt="Trabalha na investigação, teste de protótipos e desenvolvimento de código para sistemas embebidos."></p>
+                <div class="social-icons">
+                    <a href="mailto:sanguino.rodrigo@gmail.com"><i class="fas fa-envelope"></i></a>
+                    <a href="https://www.linkedin.com/in/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                </div>                
             </div>
             <div class="team-member">
-                <img src="images/team2.png" alt="Team Member 2">
+                <img src="images/team2.png" alt="Guilherme Martins">
+                <div class="overlay" data-en="Works on research, prototype testing, and code development for embedded systems." data-pt="Trabalha na investigação, teste de protótipos e desenvolvimento de código para sistemas embebidos."></div>
                 <p>Guilherme Martins</p>
                 <p data-en="Project Manager" data-pt="Gestor de Projeto"></p>
                 <p>ist1106274</p>
-                <p class="description" data-en="Oversees project coordination, team management, and partner engagement to ensure successful execution." data-pt="Supervisiona a coordenação do projeto, a gestão da equipa e o envolvimento com parceiros para garantir uma execução bem-sucedida."></p>
+                <div class="social-icons">
+                    <a href="mailto:guilherme.candeias.martins@tecnico.ulisboa.pt"><i class="fas fa-envelope"></i></a>
+                    <a href="https://www.linkedin.com/in/guilherme-candeias-martins/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                </div>
             </div>
             <div class="team-member">
-                <img src="images/team3.png" alt="Team Member 3">
+                <img src="images/team3.png" alt="Francisco Rodrigues">
+                <div class="overlay" data-en="Conducts initial research, integrates sensors, and manages technical aspects of the project." data-pt="Realiza a pesquisa inicial, integra sensores e gere os aspetos técnicos do projeto."></div>
                 <p>Francisco Rodrigues</p>
                 <p data-en="Technical Lead" data-pt="Líder Técnico"></p>
                 <p>ist1106695</p>
-                <p class="description" data-en="Conducts initial research, integrates sensors, and manages technical aspects of the project." data-pt="Realiza a pesquisa inicial, integra sensores e gere os aspetos técnicos do projeto."></p>
+                <div class="social-icons">
+                    <a href="mailto:francisco.b.rodrigues@tecnico.ulisboa.pt"><i class="fas fa-envelope"></i></a>
+                    <a href="https://www.linkedin.com/in/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                </div>
             </div>
             <div class="team-member">
-                <img src="images/team4.png" alt="Team Member 4">
+                <img src="images/team4.png" alt="Guilherme Luís">
+                <div class="overlay" data-en="Conducts theoretical analysis, testing, and financial management to optimize project resources." data-pt="Realiza análise teórica, testes e gestão financeira para otimizar os recursos do projeto."></div>
                 <p>Guilherme Luís</p>
                 <p data-en="Systems Analyst" data-pt="Analista de Sistemas"></p>
                 <p>ist1106755</p>
-                <p class="description" data-en="Conducts theoretical analysis, testing, and financial management to optimize project resources." data-pt="Realiza análise teórica, testes e gestão financeira para otimizar os recursos do projeto."></p>
+                <div class="social-icons">
+                    <a href="mailto:guilherme.costa.barata.luis@tecnico.ulisboa.pt"><i class="fas fa-envelope"></i></a>
+                    <a href="https://www.linkedin.com/in/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                </div>
             </div>
             <div class="team-member">
-                <img src="images/team5.png" alt="Team Member 5">
+                <img src="images/team5.png" alt="João Firmino">
+                <div class="overlay" data-en="Develops and maintains the website and web application to support project functionalities." data-pt="Desenvolve e mantém o website e a aplicação web para suportar as funcionalidades do projeto."></div>
                 <p>João Firmino</p>
                 <p data-en="Software Developer" data-pt="Desenvolvedor de Software"></p>
                 <p>ist1107485</p>
-                <p class="description" data-en="Develops and maintains the website and web application to support project functionalities." data-pt="Desenvolve e mantém o website e a aplicação web para suportar as funcionalidades do projeto."></p>
+                <div class="social-icons">
+                    <a href="mailto:joao.g.firmino@tecnico.ulisboa.pt"><i class="fas fa-envelope"></i></a>
+                    <a href="https://www.linkedin.com/in/joaogomesfirmino/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                </div>
             </div>
             <div class="team-member">
-                <img src="images/team6.png" alt="Team Member 6">
+                <img src="images/team6.png" alt="Afonso de Mello">
+                <div class="overlay" data-en="Focuses on initial research, partnerships, and sensor integration for technological advancements." data-pt="Foca-se na pesquisa inicial, parcerias e integração de sensores para avanços tecnológicos."></div>
                 <p>Afonso de Mello</p>
                 <p data-en="R&D Engineer" data-pt="Engenheiro de R&D"></p>
                 <p>ist1107495</p>
-                <p class="description" data-en="Focuses on initial research, partnerships, and sensor integration for technological advancements." data-pt="Foca-se na pesquisa inicial, parcerias e integração de sensores para avanços tecnológicos."></p>
+                <div class="social-icons">
+                    <a href="mailto:afonsodemello@tecnico.ulisboa.pt"><i class="fas fa-envelope"></i></a>
+                    <a href="https://www.linkedin.com/in/afonsodemello" target="_blank"><i class="fab fa-linkedin"></i></a>
+                </div>
             </div>
         </div>
     </section>
     
     <section id="project" class="project">
         <h2 data-en="Our Project" data-pt="Projeto">Our Project</h2>
-        <p data-en="Check out our explanatory video about the Anti-Drone project." data-pt="Confire o nosso vídeo explicativo sobre o projeto Anti-Drone."></p>
+        <p data-en="Check out our explanatory video about the Anti-Drone project." data-pt="Veja o nosso vídeo explicativo sobre o projeto Anti-Drone."></p>
         <div class="video-container">
             <iframe width="1280" height="720" 
                 src="https://www.youtube.com/embed/r8R_vuewTJc" 
@@ -715,9 +798,9 @@
         </div>
     </section>
     
-    <section id="project" class="project">
+    <section id="schedule" class="project">
         <h2 data-en="Our Schedule" data-pt="Planeamento">Our Schedule</h2>
-        <p data-en="Check out our schedule." data-pt="Confire o nosso planeamento."></p>
+        <p data-en="Check out our schedule." data-pt="Consulte o nosso planeamento."></p>
         <img src="images/Schedule.jpg" alt="Schedule">
     </section>
 
@@ -746,12 +829,7 @@
             <div class="contact-details">
                 <h3 data-en="Contacts" data-pt="Contactos">Contacts</h3>
                 <p><strong data-en="Address:" data-pt="Morada:">Address:</strong> Av. Rovisco Pais Nº1, 1049-001 Lisboa</p>
-                <p><strong data-en="Email:" data-pt="Email:">Email:</strong><a href="mailto:afonsodemello@tecnico.ulisboa.pt">afonsodemello@tecnico.ulisboa.pt</a></p>
-                <p><strong data-en="Email:" data-pt="Email:">Email:</strong><a href="mailto:francisco.b.rodrigues@tecnico.ulisboa.pt">francisco.b.rodrigues@tecnico.ulisboa.pt</a></p>
-                <p><strong data-en="Email:" data-pt="Email:">Email:</strong><a href="mailto:guilherme.candeias.martins@tecnico.ulisboa.pt">guilherme.candeias.martins@tecnico.ulisboa.pt</a></p>
-                <p><strong data-en="Email:" data-pt="Email:">Email:</strong><a href="mailto:guilherme.costa.barata.luis@tecnico.ulisboa.pt">guilherme.costa.barata.luis@tecnico.ulisboa.pt</a></p>
-                <p><strong data-en="Email:" data-pt="Email:">Email:</strong><a href="mailto:joao.g.firmino@tecnico.ulisboa.pt">joao.g.firmino@tecnico.ulisboa.pt</a></p>
-                <p><strong data-en="Email:" data-pt="Email:">Email:</strong><a href="mailto:sanguino.rodrigo@gmail.com">sanguino.rodrigo@gmail.com</a></p> 
+                <p><strong data-en="Email:" data-pt="Email:">Email:</strong><a href="mailto:email.projeto@algo.com">email.projeto@algo.com</a></p> 
             </div>
             <div class="contact-form">
                 <h3 data-en="Write us" data-pt="Escreva-nos">Write us</h3>

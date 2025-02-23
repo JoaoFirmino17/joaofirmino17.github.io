@@ -31,6 +31,26 @@
             width: 100%;
             height: 100%;
             overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #007BFF; 
+            border-radius: 10px; 
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #b6b6b6; 
+            border-radius: 10px; 
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: #0056b3; 
         }
 
         body.dark-mode {
@@ -256,6 +276,7 @@
         .contacts {
             padding: 25px 20px;
             text-align: center;
+            word-break: break-word;
         }
 
         .footer {
@@ -536,6 +557,7 @@
             <a href="index.html#about" data-en="About" data-pt="Sobre">About</a>
             <a href="index.html#team" data-en="Our Team" data-pt="Equipa">Our Team</a>
             <a href="index.html#project" data-en="Our Project" data-pt="Projeto">Our Project</a>
+            <a href="index.html#schedule" data-en="Our Schedule" data-pt="Planeamento">Our Schedule</a>
             <a href="#" data-en="Blog" data-pt="Blog">Blog</a>
             <a href="#contacts" data-en="Contacts" data-pt="Contactos">Contact</a>
         </nav>      
@@ -599,12 +621,7 @@
             <div class="contact-details">
                 <h3 data-en="Contacts" data-pt="Contactos">Contacts</h3>
                 <p><strong data-en="Address:" data-pt="Morada:">Address:</strong> Av. Rovisco Pais Nº1, 1049-001 Lisboa</p>
-                <p><strong data-en="Email:" data-pt="Email:">Email:</strong><a href="mailto:afonsodemello@tecnico.ulisboa.pt">afonsodemello@tecnico.ulisboa.pt</a></p>
-                <p><strong data-en="Email:" data-pt="Email:">Email:</strong><a href="mailto:francisco.b.rodrigues@tecnico.ulisboa.pt">francisco.b.rodrigues@tecnico.ulisboa.pt</a></p>
-                <p><strong data-en="Email:" data-pt="Email:">Email:</strong><a href="mailto:guilherme.candeias.martins@tecnico.ulisboa.pt">guilherme.candeias.martins@tecnico.ulisboa.pt</a></p>
-                <p><strong data-en="Email:" data-pt="Email:">Email:</strong><a href="mailto:guilherme.costa.barata.luis@tecnico.ulisboa.pt">guilherme.costa.barata.luis@tecnico.ulisboa.pt</a></p>
-                <p><strong data-en="Email:" data-pt="Email:">Email:</strong><a href="mailto:joao.g.firmino@tecnico.ulisboa.pt">joao.g.firmino@tecnico.ulisboa.pt</a></p>
-                <p><strong data-en="Email:" data-pt="Email:">Email:</strong><a href="mailto:sanguino.rodrigo@gmail.com">sanguino.rodrigo@gmail.com</a></p> 
+                <p><strong data-en="Email:" data-pt="Email:">Email:</strong><a href="mailto:email.projeto@algo.com">email.projeto@algo.com</a></p>
             </div>
             <div class="contact-form">
                 <h3 data-en="Write us" data-pt="Escreva-nos">Write us</h3>
@@ -669,7 +686,7 @@
                 .then(response => response.json())
                 .then(posts => {
                     const container = document.getElementById("posts-container");
-                    container.innerHTML = ""; // Limpa os posts anteriores
+                    container.innerHTML = "";
 
                     posts.forEach(post => {
                         const postElement = document.createElement("div");
@@ -687,7 +704,7 @@
                 })
                 .catch(error => {
                     console.error("Erro ao carregar os posts:", error);
-                    document.getElementById("posts-container").innerHTML = "<p>Não foi possível carregar os posts.</p>";
+                    document.getElementById("posts-container").innerHTML = "<p>Could not load posts.</p>";
                 });
             }
 
