@@ -694,7 +694,7 @@
 
                         postElement.innerHTML = `
                             <h2>${post.title}</h2>
-                            <img src="${post.image}" alt="${post.title}" style="width:100%; border-radius:10px; margin-bottom:10px;">
+                            <img src="${post.image}" style="max-width: 80%; height: auto; border-radius: 8px;">
                             <p>${post.content}</p>
                             <a href="${post.link}">${lang === "pt" ? "Leia mais" : "Read more"}</a>
                         `;
