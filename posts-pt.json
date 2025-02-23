@@ -1,12 +1,14 @@
 [
     {
         "title": "Finalização da Nossa Proposta de Projeto: Foco na Deteção e em Soluções Baseadas em IA",
+        "date": "21 de fevereiro de 2025",
         "content": "À medida que avançávamos com o nosso projeto, uma das fases mais cruciais foi a finalização da Proposta de Projeto e a definição da direção exata que tomaríamos. Depois de considerar várias abordagens e discutir as nossas opções com especialistas do setor, conseguimos afunilar o nosso foco e tomar decisões fundamentais sobre a estrutura do sistema...",
-        "image": "images/post_t.png",
+        "image": "images/post_2.png",
         "link": "post_2.html"
     },
     {
         "title": "Modelação do Nosso Sistema de Deteção Anti-Drones: Do Conceito à Implementação",
+        "date": "14 de fevereiro de 2025",
         "content": "Ao embarcarmos no desenvolvimento do nosso sistema de deteção e neutralização de drones, um dos primeiros desafios que enfrentámos foi definir a abordagem mais eficaz para a implementação. Com diversas tecnologias disponíveis e várias metodologias de deteção a considerar, dedicámos um tempo significativo à pesquisa e discussão antes de chegarmos a um plano concreto...",
         "image": "images/post_1.jpg",
         "link": "post_1.html"

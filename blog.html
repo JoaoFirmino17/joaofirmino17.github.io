@@ -348,6 +348,10 @@
             margin-bottom: 20px;
         }
 
+        .post-content {
+            text-align: left;
+        }
+
         .post {
             background: white;
             padding: 20px;
@@ -702,8 +706,9 @@
 
                         postElement.innerHTML = `
                             <h2>${post.title}</h2>
+                            <p>${post.date}</p>
                             <img src="${post.image}" style="max-width: 80%; height: auto; max-height: 250px; border-radius: 8px;">
-                            <p>${post.content} style="text-align: left;"</p>
+                            <p class="post-content">${post.content}</p>
                             <a href="${post.link}">${lang === "pt" ? "Leia mais" : "Read more"}</a>
                         `;
 
@@ -712,7 +717,9 @@
                 })
                 .catch(error => {
                     console.error("Erro ao carregar os posts:", error);
-                    document.getElementById("posts-container").innerHTML = "<p>Could not load posts.</p>";
+                    document.getElementById("posts-container").innerHTML = `
+                        <p>${lang === "pt" ? "Não foi possível carregar os posts." : "Could not load posts."}</p>
+                    `;
                 });
             }
 
