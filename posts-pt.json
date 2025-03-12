@@ -1,5 +1,12 @@
 [
     {
+        "title": "Atualização de Progresso: Aperfeiçoamento do Aprendizado de Máquina e Perspetivas da Indústria",
+        "date": "8 de março de 2025",
+        "content": "Esta semana marcou um progresso significativo no nosso projeto, especialmente em duas áreas-chave: o aperfeiçoamento do nosso modelo de aprendizado de máquina e discussões enriquecedoras com especialistas da indústria...",
+        "image": "images/post_4.jpg",
+        "link": "post_4.html"
+    },
+    {
         "title": "Atualização de Progresso: Treino do Modelo e Finalização dos Componentes",
         "date": "1 de março de 2025",
         "content": "Esta semana, começámos o treino do algoritmo de aprendizagem automática que irá alimentar o nosso sistema de deteção de drones: o YOLO v11. Até agora, treinámos o modelo com aproximadamente 10.000 imagens, mas ainda há um longo caminho a percorrer em termos de aperfeiçoamento e melhoria da sua precisão. O processo de afinação do modelo continuará, à medida que procuramos otimizar o seu desempenho para cenários reais de deteção...",

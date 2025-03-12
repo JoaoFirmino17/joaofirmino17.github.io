@@ -1,6 +1,13 @@
 [
     {
-        "title": "Finalizing Our Project Proposal: Focusing on Detection and AI-Driven Solutions",
+        "title": "Progress Update: Improving Machine Learning and Industry Insights",
+        "date": "March 8, 2025",
+        "content": "This week marked significant progress in our project, particularly in two key areas: the enhancement of our machine learning model and insightful discussions with industry experts...",
+        "image": "images/post_4.jpg",
+        "link": "post_4.html"
+    },
+    {
+        "title": "Progress Update: Training the Model and Finalizing Components",
         "date": "March 1, 2025",
         "content": "This week, we began training the machine learning algorithm that will power our drone detection system: YOLO v11. So far, we have trained the model with approximately 10,000 images, but there is still a long way to go in terms of refining and improving its accuracy. The process of fine-tuning the model will continue as we aim to optimize its performance for real-world detection scenarios...",
         "image": "images/post_3.jpg",
