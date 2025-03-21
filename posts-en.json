@@ -1,5 +1,12 @@
 [
     {
+        "title": "Progress on Our Anti-Drone Detection System",
+        "date": "March 15, 2025",
+        "content": "This week, we made significant progress in training our machine learning model. We've been refining the algorithm, focusing on improving its accuracy in distinguishing between drones and other objects like birds. Each iteration brings us closer to a reliable and efficient detection system...",
+        "image": "images/post_5.jpg",
+        "link": "post_5.html"
+    },
+    {
         "title": "Progress Update: Improving Machine Learning and Industry Insights",
         "date": "March 8, 2025",
         "content": "This week marked significant progress in our project, particularly in two key areas: the enhancement of our machine learning model and insightful discussions with industry experts...",

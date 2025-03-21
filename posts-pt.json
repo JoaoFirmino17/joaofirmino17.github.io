@@ -1,5 +1,12 @@
 [
     {
+        "title": "Progresso no Nosso Sistema de Deteção Anti-Drones",
+        "date": "15 de março de 2025",
+        "content": "Esta semana, alcançámos progressos significativos no treino do nosso modelo de aprendizado de máquina. Temos vindo a refinar o algoritmo, focando-nos em melhorar a sua precisão na distinção entre drones e outros objetos, como pássaros. Cada iteração aproxima-nos de um sistema de deteção mais fiável e eficiente...",
+        "image": "images/post_5.jpg",
+        "link": "post_5.html"
+    },
+    {
         "title": "Atualização de Progresso: Aperfeiçoamento do Aprendizado de Máquina e Perspetivas da Indústria",
         "date": "8 de março de 2025",
         "content": "Esta semana marcou um progresso significativo no nosso projeto, especialmente em duas áreas-chave: o aperfeiçoamento do nosso modelo de aprendizado de máquina e discussões enriquecedoras com especialistas da indústria...",
